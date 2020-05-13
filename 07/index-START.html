@@ -17,7 +17,7 @@
       <kbd>S</kbd>
       <span class="sound">hihat</span>
     </div>
-    <div data-key="68" class="key">
+    <div data-key="68" class="key" width=''> 
       <kbd>D</kbd>
       <span class="sound">kick</span>
     </div>
@@ -47,7 +47,7 @@
     </div>
   </div>
 
-  <audio data-key="65" src="sounds/clap.wav"></audio>
+  <audio data-key="65" src="sounds/clap.wav" ></audio>
   <audio data-key="83" src="sounds/hihat.wav"></audio>
   <audio data-key="68" src="sounds/kick.wav"></audio>
   <audio data-key="70" src="sounds/openhat.wav"></audio>
@@ -56,6 +56,23 @@
   <audio data-key="74" src="sounds/snare.wav"></audio>
   <audio data-key="75" src="sounds/tom.wav"></audio>
   <audio data-key="76" src="sounds/tink.wav"></audio>
+
+  <script>
+
+    window.addEventListener('keydown', playSound);
+    function playSound(e) {
+      console.log("Pusti muziku!");
+      var keycode = e.keyCode;
+      console.log(keycode);
+      var element_koji_trazimo = 'audio[data-key="'+keycode+'"]';
+      console.log(element_koji_trazimo);
+      audio = document.querySelector(element_koji_trazimo);
+      console.log(audio);
+      audio.play();
+
+    }
+
+  </script>
 
 <script>
 
