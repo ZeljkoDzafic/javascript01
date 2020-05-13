@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+
+console.log(aaa);
+var aaa = 0;
+
+// Set population limit of aquarium to 10
+const popLimit = 10;
+
+// Start off with 0 fish
+let fish = 0;
+
+// Initiate while loop to run until fish reaches population limit
+while (fish < popLimit) {
+// add one fish for each iteration
+fish++;
+console.log("There's room for " + (popLimit - fish) + " more fish.");
+}
+
+
+
+// Initiate an infinite loop
+while (true) {
+    // execute code forever
+}
+
+// Set variable to 0
+let x = 0;
+
+do {
+    // Increment variable by 1
+    x++;
+    console.log(x);
+} while (false);
+
+
+let x = 0;
+while(false) {
+    x++;
+    console.log(x);
+}
+
+// Initialize a for statement with 5 iterations
+
+let i = 0, k = 'a', b = "dada";
+
+for (let i = 0; i < 4; i++) {
+    // Print each iteration to the console
+    console.log(i);
+}
+
+
+for (let i = 0, k = 'a', b = "dada"; i < 4 && k =='a' ; i=i+2) {
+    // Print each iteration to the console
+    console.log(i);
+}
+
+
+
+let shark2 = {
+    color: "white",
+    species: "great white",
+    numberOfTeeth: Infinity
+}
+
+
+
+for (attribute in shark2) {
+    console.log(attribute);
+}
+
+
+
+
+// Initialize array of shark species
+let sharks = [ "great white", "tiger", "hammerhead" ];
+
+// Print out each type of shark
+for (let shark of sharks) {
+    console.log(shark);
+}
+
+/*
+A variable is a named container used for storing values.
+ A piece of information that we might reference multiple times can be stored in a variable for 
+ later use or modification.
+*/
+
+
+/*
+Keyword	Scope	            Hoisting	Can Be Reassigned	Can Be Redeclared
+var	    Function scope	    Yes	        Yes	                Yes
+let	    Block scope	         No	        Yes	        No
+const	Block scope	          No	    No	        No
+*/
+
+/*
+
+Template literals are string literals allowing embedded expressions. 
+You can use multi-line strings and string interpolation features with them.
+
+*/
+
+let a = 5;
+let b = 10;
+console.log('Fifteen is ' + (a + b) + ' and\nnot ' + (2 * a + b) + '.');
+
+
+
+console.log(`Fifteen is ${a + b} and
+not ${2 * a + b}.`);
+
+    </script>
+    
+</body>
+</html>

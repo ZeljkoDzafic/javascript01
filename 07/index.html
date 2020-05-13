@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+
+
+
+    <form id="form">
+        <input type="text" placeholder="text input" onkeydown="test2(event)">
+        <input type="password" placeholder="password" >
+      </form>
+
+      <script>
+
+function test(event) {
+    console.log("tu sam");
+    console.log(event);
+    event.target.style.background = 'blue'; 
+    
+    //var password = document.querySelector('input[type="password"]');
+    //password.style.background = 'pink'; 
+
+}
+
+function test3() {
+    console.log("event 3");
+}
+
+function test2(event) {
+    console.log("tu sam 2");
+    console.log(event);
+    event.target.style.background = 'red'; 
+
+}
+var password = document.querySelector('input[type="password"]');
+
+//password.onfocus = test3();
+
+
+password.addEventListener('focus', test3());
+
+
+
+/*
+        var password = document.querySelector('input[type="password"]');
+        
+        password.addEventListener('focus', (event) => {
+          event.target.style.background = 'pink';    
+        });
+        
+        password.addEventListener('blur', (event) => {
+          event.target.style.background = '';    
+        });
+        
+        
+        */
+            </script>
+
+</body>
+</html>
