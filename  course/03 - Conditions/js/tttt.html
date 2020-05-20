@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+
+    div { 
+        border: 2px solid #000000; 
+        margin: 10px;
+    }
+    #pradeda {
+
+        width: 600px;
+        height: 600px;
+        background-color: cadetblue;
+    }
+    #deda {
+
+        width: 400px;
+        height: 400px;
+        background-color: blue;
+
+    }
+
+
+    #otac {
+
+        width: 150px;
+        height: 150px;
+        background-color: red;
+
+}
+
+
+#stric {
+
+width: 150px;
+height: 150px;
+background-color:coral;
+
+}
+
+
+#ja {
+
+width: 100px;
+height: 100px;
+background-color: green;
+
+}
+
+</style>
+<script>
+    function test(event) {
+
+        //console.log(event.srcElement.parentElement);
+        //console.log(typeof event.srcElement.parentElement);
+        //console.
+
+        
+        //event.srcElement.parentElement.innerHTML = event.srcElement.parentElement.innerHTML + 
+        //'<div id="brat">BRAT</div>';
+
+        console.log(event.srcElement.parentElement.nextElementSibling);
+
+
+        event.srcElement.parentElement.nextElementSibling.style.backgroundColor = "yellow";
+        event.srcElement.parentElement.parentElement.style.backgroundColor = "#ccc";
+    }
+</script>
+</head>
+
+<body>
+    
+
+    <div id="pradeda">
+        <div id="deda">
+
+            <div id="otac">
+
+                <div id="ja" onclick="test(event)">
+                </div>
+            </div>
+<div id="stric">
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
