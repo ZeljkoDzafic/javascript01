@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metamorphe</title>
+    <style>
+        #metamorphe {
+            width: 300px;
+            height: 300px;
+            border: 2px solid #000000;
+        }
+
+        label{ display: block;}
+        input{ display: block;}
+
+    </style>
+</head>
+<body>
+
+    <form id="control">
+        <label for="height"> Height </label>
+        <input type="number" name="height" id="height" />
+        <label for="width"> Width </label>
+        <input type="number" name="width" id="width" />
+        <label for="background"> Background </label>
+        <input type="text" name="background" id="background" />
+        <label for="color"> Color </label>
+        <input type="text" name="color" id="color" />
+        <label for="border_color"> Border Color </label>
+        <input type="text" name="border_color" id="border_color" />
+        <label for="border_size"> Border Size </label>
+        <input type="number" name="border_size" id="border_size" />
+        <label for="rounded"> Rounded </label>
+        <input type="number" name="rounded" id="rounded" />
+
+    </form>
+
+    <div id="metamorphe">
+
+    </div>
+    <script>
+
+        function elementMetamprhe(text = ''){
+
+            var metamorphe  = document.getElementById("metamorphe");
+
+            var rounded  = document.getElementById("rounded").value;
+            var border_size  = Number(document.getElementById("border_size").value);
+            var border_color  = document.getElementById("border_color").value;
+            var color  = document.getElementById("color").value;
+            var background  = document.getElementById("background").value;
+            const width  = Number(document.getElementById("width").value);
+            const height = Number(document.getElementById("height").value);
+
+            //console.log( "Width");
+            //console.log(weight.value);
+
+            //console.log( "height");
+            //console.log(height.value);
+
+            //console.log(height);
+            //console.log(typeof background);
+
+  
+
+            //if(height.value != ''  && height.value != null && height.value != undefined ) {
+             //   metamorphe.style = "height:" + height.value + "px";
+           // }
+
+           //console.log(height);
+           //console.log(width);
+
+           var style = "";
+
+           if(height > 0 ) {
+                style += "height:" + height + "px;";
+            }
+
+            if(width > 0 ) {
+                style += "width:" + width + "px;";
+            }
+
+     
+
+            if(border_size > 0 ) {
+                 style += "border-width:" + border_size + "px;";
+            }
+
+            if(rounded != '' ) {
+                 style += "border-radius:" + rounded + "px;";
+            }
+
+
+            if(color != '' ) {
+                 style += "color:" + color + ";";
+            }
+
+            if(background != '') {
+                style += "background-color:" + background + ";";
+            }
+
+            if(border_color != '') {
+                style += "border-color:" + border_color + ";";
+            }
+
+
+            if(text != '' && text != null && text != undefined) {
+                metamorphe.innerHTML = text;
+            }
+
+            console.log(style);
+            metamorphe.style= style;
+
+
+
+        }
+
+
+    </script>
+</body>
+</html>
