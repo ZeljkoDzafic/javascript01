@@ -20,7 +20,7 @@
 
     <form id="control">
         <label for="height"> Height </label>
-        <input type="number" name="height" id="height" />
+        <input type="number" name="height" id="height"  onblur="elementMetamorphe()" />
         <label for="width"> Width </label>
         <input type="number" name="width" id="width" />
         <label for="background"> Background </label>
@@ -41,7 +41,7 @@
     </div>
     <script>
 
-        function elementMetamprhe(text = ''){
+        function elementMetamprhe(param){
 
             var metamorphe  = document.getElementById("metamorphe");
 
@@ -75,10 +75,14 @@
 
            if(height > 0 ) {
                 style += "height:" + height + "px;";
+                //metamorphe.style.height = height + "px;";
+
             }
 
             if(width > 0 ) {
+                
                 style += "width:" + width + "px;";
+                //metamorphe.style.width = width + "px;";
             }
 
      
@@ -105,8 +109,8 @@
             }
 
 
-            if(text != '' && text != null && text != undefined) {
-                metamorphe.innerHTML = text;
+            if(param != '' && param != null && param != undefined && typeof param == "string") {
+                metamorphe.innerHTML = param;
             }
 
             console.log(style);
@@ -116,6 +120,13 @@
 
         }
 
+        var inputElements = document.getElementsByTagName('input');
+        console.log(inputElements);
+
+        for( inputElement of inputElements) {
+            console.log(inputElement);
+            inputElement.addEventListener("blur", elementMetamprhe);
+        }
 
     </script>
 </body>
