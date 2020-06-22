@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="text">00:00:00</div>
+<button id="start" onclick="">Start</button> &nbsp;
+<button id="stop" onclick="stop()">Stop</button>
+<button id="resume" onclick="">Resume</button>
+<button id="reset" onclick="reset()">Reset</button>
+
+
+<script>
+    var elementText = document.getElementById("text");
+    var elementStart = document.getElementById("start");
+    var elementReset = document.getElementById("reset");
+    var elementStop = document.getElementById("stop");
+    var elementResume = document.getElementById("resume");
+
+    var INTERVAL = 10;
+    var startTime; // Ljubica
+    var pausedTime;
+    var interval;
+    var stopTime;
+    var milisecondsElapsed = 0;
+    var milisecondsElapsedInPreviousRun=0;
+    var milisec = 0;
+   
+
+    elementReset.addEventListener("click", reset);
+    elementStart.addEventListener("click", start);
+    elementStop.addEventListener("click", stop);
+    elementResume.addEventListener("click", resume);
+
+    function stopwatch() {
+        //milisecondsElapsed = milisecondsElapsedInPreviousRun  + new Date().getTime() - startTime.getTime();
+    
+        milisecondsElapsed+= new Date().getTime() - startTime.getTime();
+        milisec = milisecondsElapsed %  1000;
+
+        var secs = Math.floor(milisecondsElapsed / 1000) % 60 ;
+        var mins = Math.floor(milisecondsElapsed / (60 * 1000)) % 60 ;
+        var hours = Math.floor(milisecondsElapsed / (60 * 60 * 1000));
+   
+        elementText.innerHTML = (hours > 9 ? hours : ("0" + hours)) + ":" +
+            (mins > 9 ? mins : ("0" + mins)) + ":" +
+            (secs > 9 ? secs : ("0" + secs)) + "." + milisec;
+
+    }
+
+    function start() {
+        startTime = new Date(); // Ljubica
+        interval = setInterval(stopwatch, INTERVAL);
+        return true;
+
+    }
+
+    function stop() {
+        clearInterval(interval);
+        stopTime = new Date ();
+        //milisecondsElapsedInPreviousRun = milisecondsElapsed;
+        return true;
+    }
+  
+    function reset() {
+        clearInterval(interval);
+        elementText.innerHTML = "00:00:00";
+        time = 0;
+    }
+
+
+    function resume() {
+        console.log("resume");
+
+        console.log(milisecondsElapsed);
+
+       startTime = new Date(); // Ljubica
+        interval = setInterval(stopwatch, INTERVAL);
+    }
+</script>
+
+</body>
+</html>

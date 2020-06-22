@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stoperica</title>
+    <style>
+        body {
+            background-color: black;
+            font-size: 2rem;
+            font-family: 'Courier New', Courier, monospace;
+            color: chartreuse;
+        }
+        .stoperica {
+            display: flex;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div id="stoperica"></div>
+
+<button class="control" onclick="start()">
+    Start
+    </button>
+
+    <button class="control" onclick="stop()">
+        Stop
+    </button>
+
+        <button class="control" onclick="reset()">
+        Reset
+    </button>
+
+    <script>
+var stotinke = 0; 
+var minute=0; 
+var sekundeZaPrikaz = 0; 
+var stotinkeZaPrikaz = 0;
+//minute=0;
+
+function stoperica() {
+
+    stotinke++;
+    //console.log(stotinke);
+     minute = Math.floor(stotinke/6000);
+    //jedan minut ima 6000 stotinki i sa funkcijom round daje celu vrednost 
+    
+    preostaleSekunde = Math.floor((stotinke/100) - (minute*60));
+
+    sekundeZaPrikaz = (preostaleSekunde < 10) ? "0"+preostaleSekunde : preostaleSekunde;
+
+    minuteZaPrikaz = (minute < 10) ? "0"+minute : minute;
+
+    presotaleStotinke = stotinke - (minute * 60 * 100) - (sekundeZaPrikaz * 100);
+
+    //console.log( "ST: " + stotinke + "M:" + minute + "S:"+ preostaleSekunde + "SP:" + presotaleStotinke);
+
+    if(presotaleStotinke < 0) {
+        stotinkeZaPrikaz  = "000";
+
+    } else {
+
+        if(presotaleStotinke < 10) {
+            stotinkeZaPrikaz = "00"+presotaleStotinke;
+        } else if(presotaleStotinke < 100)  {
+            stotinkeZaPrikaz = "0"+presotaleStotinke;
+        } else {
+            stotinkeZaPrikaz = presotaleStotinke;
+        }
+    }
+
+    var ispis = minuteZaPrikaz + ":" +sekundeZaPrikaz + ":" + stotinkeZaPrikaz;
+
+    document.getElementById("stoperica").innerHTML = ispis;
+
+}
+
+function start(){
+    mojTajmer = setInterval(stoperica,100);
+}
+function stop () {
+    
+    clearInterval(mojTajmer);
+    console.log("stop");
+    return true;
+}
+
+ 
+function reset () {
+stop();
+stotinke = 0; 
+minute=0; 
+sekundeZaPrikaz = 0; 
+stotinkeZaPrikaz = 0;
+document.getElementById("stoperica").innerHTML = "00:00:00";
+}
+
+
+
+
+
+
+/**
+ * Nizove, liste, kolekcije u javascriptu domaći
+Domaći 05
+ */
+</script>
+
+</body>
+</html>
