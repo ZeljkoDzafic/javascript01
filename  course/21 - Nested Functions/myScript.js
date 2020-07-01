@@ -1,5 +1,15 @@
 // JavaScript Nested Functions 
 
+
+function testVanjska () {
+	console.log("vanjska");
+	function testUnutrasnja() {
+		console.log("Unutrasnja");
+	}
+
+	testUnutrasnja();
+}
+
 // nested function`
 function outerFunction() {
 	

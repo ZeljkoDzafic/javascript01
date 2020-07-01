@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+function fibonacci(num){
+  var a = 1, b = 0, temp;
+
+  while (num >= 0){
+    temp = a; // 1 // 1  // 2 // 3 
+    a = a + b; // 1 // 2 // 3 // 5
+    b = temp; // 1 // 1 // 2 // 3
+    num--; // 4 // 3 //2 // 1
+  }
+
+
+  return b;
+}
+
+/** za razmisljanje **/
+function fibonacci2(num){ 
+
+    var tmp = 0;
+    var f = 0;
+    if(i<=0) {
+        f = 1; 
+        return f;
+    } else {
+
+     for (i=0; i<num; i++) {
+         console.log("i:"+ i + "f:" +f + "tmp:" + tmp);
+         f = i+tmp; 
+         tmp = f;
+        // 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...
+
+     }
+     return f;
+    }
+}
+
+function fibonacci_rec(num) {
+  if (num <= 1) return 1;
+  return fibonacci_rec(num - 1) + fibonacci_rec(num - 2);
+}
+
+
+
+for (i = 1; i<10; i++){
+
+    console.log(fibonacci(i));
+
+
+}
+
+    </script>
+    
+</body>
+</html>
