@@ -17,6 +17,21 @@
 <script>
 const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
 
+test = fetch(endpoint)
+  .then(function(data1) {
+      console.log("Prvi then");
+      console.log(data1);
+  })
+  .then(function(data2) {
+
+    console.log("Drugi then");
+    console.log(data2);
+  }).catch(function(error) {
+    console.log(error);
+    console.log("greska");
+  });
+  
+  console.log(test);
 </script>
 </body>
 </html>
