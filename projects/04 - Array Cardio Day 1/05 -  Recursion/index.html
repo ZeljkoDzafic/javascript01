@@ -26,23 +26,70 @@ function fibonacci(num){
 /** za razmisljanje **/
 function fibonacci2(num){ 
 
-    var tmp = 0;
-    var f = 0;
+
+    var prethodni = 0, f = 1, tmp=0;
+
+
+
     if(i<=0) {
-        f = 1; 
+  
         return f;
     } else {
 
-     for (i=0; i<num; i++) {
-         console.log("i:"+ i + "f:" +f + "tmp:" + tmp);
-         f = i+tmp; 
-         tmp = f;
+     for (i=1; i<=num; i++) {
+
+         
+         fibonaci_od_broja_x = finbonaci_od_prethodnog + finbonaci_od_pred_prethodnog ;
+
+        tmp = prethodni + f;
+         prethodni = f;
+         f = tmp;
+
+         console.log("i:"+ i + ":f:" +f + ":prethodni:" + prethodni + ":iduci:" + iduci) ;
+
+        // 0  1  2  3  4  5  6
         // 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...
 
      }
      return f;
     }
 }
+
+
+var i  = 0;
+
+function fibonaci5(broj)  { //5
+
+    if(broj<=1) {
+        var rezultat = 1;
+        return rezultat;
+    }
+
+
+
+    var rezultat = fibonaci5(broj-2) + fibonaci5(broj-1);
+
+    // prvi poziv 
+
+    fibonaci(3) =  (fibonaci(1) +  fibonaci(2))
+    fibonaci(3) =  ( 1  + fibonaci(1) + fibonaci (0)); //3
+
+
+    //
+
+
+    fibonaci(4) =  fibonaci(3) + fibonacci (2)
+    fibonaci (4) = fibonaci (1) + fibonaci (2) + fibonaci(1) + fibonaci (0);
+    fibonaci (4) = fibonaci (1) + fibonaci (1) + fibonaci (0) + fibonaci(1) + fibonaci (0); //5
+
+    i++;
+
+    console.log("i:" + i + "broj:" + broj +  " - rekurzija:" + rezultat);
+
+    return rezultat;
+
+}
+
 
 function fibonacci_rec(num) {
   if (num <= 1) return 1;

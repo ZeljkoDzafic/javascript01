@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Type Ahead 👀</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <form class="search-form">
+    <input type="text" class="search" placeholder="City or State">
+    <ul class="suggestions">
+      <li> 
+
+    </ul>
+  </form>
+<script>
+
+var searchInputs = document.getElementsByClassName("search");
+
+var specificInput = searchInputs[0];
+
+var razultati = document.querySelector('.suggestions');
+
+specificInput.addEventListener('keyup', pretraga);
+
+function pretraga(e) {
+
+  console.log(e);
+  var vrijednost =  specificInput.value;
+  var nasumicanBroj = getRandomInt(10);
+ // u listu dodajemo ako broj slova je veci od 3 i ako je nasumican broj paran 
+
+ if((vrijednost.length > 3) && (nasumicanBroj%2 == 0)) {
+    console.log("dodaj u listu");
+
+    var elementListe = document.createElement('li');
+    var ime = document.createElement('span');
+    var tekst = document.createTextNode(vrijednost + '-:-' + nasumicanBroj);
+
+
+    elelmentString = "<li>sdsadsadsadsad"
+
+    ime.setAttribute("class", "name");
+    ime.appendChild(tekst);
+    elementListe.appendChild(ime);
+
+    razultati.appendChild(elementListe);
+    razultati.innerHTML
+
+ }
+
+/*
+  var node = document.createElement("LI");                 // Create a <li> node
+var textnode = document.createTextNode("Water");         // Create a text node
+node.appendChild(textnode);                              // Append the text to <li>
+document.getElementById("myList").appendChild(node);
+*/
+
+  console.log(vrijednost.lenght);
+  console.log(vrijednost + '-:-' + nasumicanBroj);
+}
+
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
+
+
+</script>
+</body>
+</html>
