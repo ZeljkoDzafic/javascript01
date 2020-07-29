@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul id="gradovi">
+
+    </ul>
+
+
+    <ul id="regije">
+
+    </ul>
+
+    <script>
+
+
+var regijeKolekcija = {};
+
+var gradoviKolekcija = {};
+
+function ucitajOdgovor(zahtjev) {
+
+    console.log(zahtjev);
+    //console.log("Status: " + zahtjev.status);
+    //console.log("Response: " + zahtjev.response);
+    if(zahtjev.status == 200 || zahtjev.status == 201) {
+        return zahtjev.response;
+    }
+    return false;
+}
+
+
+function desilaSeGreska() {
+
+console.log("Greska:" );
+
+}
+
+function trentniStatus(event) {
+
+    console.log("trenutni status");
+
+}
+        var gradovi =  new XMLHttpRequest();
+      
+
+        gradovi.open("GET","https://admin.plodovisela.com/api/v1/cities");
+
+
+        var regije =  new XMLHttpRequest();
+        regije.responseType = 'json';
+        regije.open("GET","https://admin.plodovisela.com/api/v1/regions");
+        regije.onload = function() {
+            regijeKolekcija = ucitajOdgovor(regije);
+
+            console.log(regijeKolekcija);
+    
+            var regijeHTMLLista = document.getElementById("regije");
+
+            console.log(regijeKolekcija.region);
+            if(regijeKolekcija.region != undefined) {
+
+            regijeKolekcija.region.forEach(element => {
+                
+                textNode = document.createTextNode(element.id  + ". " + element.name);
+                liNode = document.createElement("li");
+                liNode.appendChild(textNode);
+                regijeHTMLLista.appendChild(liNode);
+
+            });
+        }
+
+        };
+        regije.onerror = desilaSeGreska;
+        regije.onprogress = trentniStatus;
+        
+
+        regije.send();
+
+    
+
+
+
+        gradovi.open("GET","https://admin.plodovisela.com/api/v1/cities");
+
+        gradovi.onload = function() {
+            odgovor = ucitajOdgovor(gradovi);
+            gradoviKolekcija = JSON.parse(odgovor);
+        };
+        gradovi.onerror = desilaSeGreska;
+        gradovi.onprogress = trentniStatus;
+
+        gradovi.send();
+        var zahtjev  = gradovi;
+
+    </script>
+</body>
+</html>
