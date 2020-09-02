@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+       // var niz =  Array();
+
+      //  var niz1 =  new Array();
+
+       // var niz2 =  [];
+
+       // var niz3 =  ["a", "b"];
+
+       // var niz4 = function() {
+        //    return [];
+        //}
+
+  //      console.log(niz1);
+
+    //    console.log(niz2);
+
+      //  console.log(niz3);
+
+        // console.log(niz4());
+        
+
+
+        person = new  Object();
+        //console.log(person);
+        person1 =   Object();
+        //console.log(person1);
+        person2 = {
+
+            ime: "Marko",
+            prezime: "Markovic",
+
+            ispis: function () {
+
+                console.log(this.ime + " " + this.prezime);
+            }
+
+        };
+
+       // console.log(person2);
+
+
+    function osoba(fName, lName, hg, age) {
+    
+    this.firstName = fName;
+    this.lastName = lName;
+    this.height = hg;
+    this.age = age;
+    this.ispis = function() {
+        
+        console.log (this.firstName + " " + this.lastName);
+    }
+}
+
+
+var person3 = new osoba("Pero","Peric", 180, 25);
+
+//console.log(person3)
+
+person.ime = "Pero";
+person.prezime = "Peric";
+
+
+person1.br_indexa = "73/15";
+person2.omiljena_boja = "plava";
+person3.omiljeni_kolac = "Saher torta";
+
+person.ispis = function () {
+
+    console.log (this.ime + " " + this.prezime);
+
+};
+
+person2.ispis();
+person.ispis();
+
+console.log(person3['omiljeni_kolac']);
+
+
+console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+
+console.log(person);
+console.log(person1);
+console.log(person2);
+console.log(person3);
+    </script>
+</body>
+</html>

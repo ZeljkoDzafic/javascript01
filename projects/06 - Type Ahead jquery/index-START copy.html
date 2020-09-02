@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Type Ahead 👀</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <form class="search-form">
+    <input type="text" class="search" placeholder="City or State">
+    <ul class="suggestions">
+      <li> 
+
+    </ul>
+  </form>
+<script>
+const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+
+var xhttp = new XMLHttpRequest();
+
+
+
+
+
+
+var searchInputs = document.getElementsByClassName("search");
+
+var specificInput = searchInputs[0];
+
+var razultati = document.querySelector('.suggestions');
+
+specificInput.addEventListener('keyup', pretraga);
+
+
+var testnaKolekcija  = [
+    {
+        "city": "New York", 
+        "growth_from_2000_to_2013": "4.8%", 
+        "latitude": 40.7127837, 
+        "longitude": -74.0059413, 
+        "population": "8405837", 
+        "rank": "1", 
+        "state": "New York"
+    }, 
+    {
+        "city": "Los Angeles", 
+        "growth_from_2000_to_2013": "4.8%", 
+        "latitude": 34.0522342, 
+        "longitude": -118.2436849, 
+        "population": "3884307", 
+        "rank": "2", 
+        "state": "California"
+    }, 
+    {
+        "city": "Chicago", 
+        "growth_from_2000_to_2013": "-6.1%", 
+        "latitude": 41.8781136, 
+        "longitude": -87.6297982, 
+        "population": "2718782", 
+        "rank": "3", 
+        "state": "Illinois"
+    }, 
+    {
+        "city": "Houston", 
+        "growth_from_2000_to_2013": "11.0%", 
+        "latitude": 29.7604267, 
+        "longitude": -95.3698028, 
+        "population": "2195914", 
+        "rank": "4", 
+        "state": "Texas"
+    },
+    {
+        "city": "Philadelphia", 
+        "growth_from_2000_to_2013": "2.6%", 
+        "latitude": 39.9525839, 
+        "longitude": -75.1652215, 
+        "population": "1553165", 
+        "rank": "5", 
+        "state": "Pennsylvania"
+    }
+    ];
+
+function pretraga(e) {
+
+  console.log(e);
+  var vrijednost =  specificInput.value;
+  var nasumicanBroj = getRandomInt(4);
+
+
+console.log(testnaKolekcija[nasumicanBroj]);
+
+if(vrijednost.length > 3) {
+
+  /*
+  elementListe  = document.createElement('li')
+  elementSpan = document.createElement('span');
+  elementSpan.setAttribute('class', 'name');
+  textNode = document.createTextNode(testnaKolekcija[nasumicanBroj].city);
+
+  elementSpan.appendChild(textNode);
+
+  elementListe.appendChild(elementSpan);
+  razultati.appendChild(elementListe);
+
+  */
+
+  stringHtml = '';
+
+  stringHtml = '<li><span class="name">'+testnaKolekcija[nasumicanBroj].city+'</span></li>';
+
+  razultati.innerHTML+= stringHtml;
+
+
+
+  
+
+}
+
+ // u listu dodajemo ako broj slova je veci od 3 i ako je nasumican broj paran 
+
+// if((vrijednost.length > 3) && (nasumicanBroj%2 == 0)) {
+//    console.log("dodaj u listu");
+
+/*
+    var elementListe = document.createElement('li');
+    var ime = document.createElement('span');
+    var tekst = document.createTextNode(vrijednost + '-:-' + nasumicanBroj);
+
+
+    elelmentString = "<li>sdsadsadsadsad"
+
+    ime.setAttribute("class", "name");
+    ime.appendChild(tekst);
+    elementListe.testnaKolekcija[nasumicanBroj](ime);
+
+    razultati.appendChild(elementListe);
+    razultati.innerHTML
+    */
+
+ //}
+
+/*
+  var node = document.createElement("LI");                 // Create a <li> node
+var textnode = document.createTextNode("Water");         // Create a text node
+node.appendChild(textnode);                              // Append the text to <li>
+document.getElementById("myList").appendChild(node);
+*/
+
+  //console.log(vrijednost.lenght);
+  //console.log(vrijednost + '-:-' + nasumicanBroj);
+}
+
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do - other way around</title>
+</head>
+<body>
+    
+    <h1>Work To-Dos</h1>
+
+
+    <input id="userInput" type="text" placeholder="New item..." maxlength="27">
+    <input id="doneUserInput" type="text" placeholder="Done item..." maxlength="27">
+    <button id="enter">ADD</button>
+
+    <div class="display-list">
+        
+        <ul id="listItems">
+
+        </ul>
+
+        <ul id="donelistItems">
+
+        </ul>
+    </div>
+
+
+    <script>
+
+        //var listItems =  new Array();
+        var listItems = [];
+        var doneListItems = [];
+
+       
+
+        /*
+    function myFunction1() {
+    
+    
+        x = 10;
+
+        console.log("x = " + x  + " accessed inside a function.<br>");
+        x = x + 5;
+
+        console.log(x);
+	
+    }*/
+
+        function addListElement(userInput, list) {
+            list.push(userInput);
+            displayList(list);
+        }
+        function removeListElement(userInput) {
+           // listItems.pop(userInput);
+           // not good removes last element
+           listIndex = listItems.indexOf(userInput);
+           if (listIndex > -1) {
+             listItems.splice(listIndex, 1);
+            }
+            displayList(listItems);
+
+            addListElement(userInput,doneListItems);
+            displayList(doneListItems);
+        }
+
+        function displayList(list) {
+            console.log(list);
+
+        }
+
+        function testiramoDogadjaj(event) {
+
+            console.log(event);
+        };
+
+        //document.getElementById("userInput").addEventListener("keypress", addListElement);
+
+
+        function listEvent(event) {
+            console.log(event);
+
+            var userInput = document.getElementById("userInput").value;
+            var doneUserInput = document.getElementById("doneUserInput").value;
+
+            if(userInput != '') {
+
+                addListElement(userInput,listItems);
+                console.log("to-do list");
+                displayList(listItems)
+
+            }
+
+            if(doneUserInput != '') {
+
+                removeListElement(doneUserInput);
+                console.log("done list");
+                displayList(doneListItems)
+
+            }
+           
+            return false;
+        }
+
+
+        document.getElementById("enter").addEventListener("click",listEvent);
+
+
+    </script>
+</body>
+</html>
