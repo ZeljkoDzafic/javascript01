@@ -20,30 +20,45 @@
     </ul>
   </form>
 <script>
+
 const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+var cities;
 
-$.ajax( endpoint ).done(function(data) {
-    console.log(data);
-});
-
-
+$.ajax( endpoint ).done(function(data) {cities = JSON.parse(data);});
 
 $('input.search').on('keypress', function (e) {
-    console.log($('input.search').val());
-    var liElement = $('<li></li>').append(
-      
-        $('<span class="name"></span>').text("test")
     
-    
-    ).append(
-          $('<span class="population"></span>').text("Popluacija")
-          
-          );
-   
+    var text = $('input.search').val();
 
-    $('ul.suggestions').append(liElement);
+    var matches = $.grep(cities, function( element ) 
+    {
+
+    const regex = new RegExp(text, 'gi');
+    return element.city.match(regex) || element.state.match(regex);
+    });
+
+    $.each(matches, function( index, marchedElement) {
   
-});
+      console.log(marchedElement);
+  
+      var liElement =$('<li></li>').append($('<span class="name"></span>').text(marchedElement.city));
+      liElement.append($('<span class="population"></span>').text(marchedElement.population));
+      $('ul.suggestions').append(liElement);
+        
+
+
+    });
+
+
+
+
+
+
+
+
+  });
+  
+
 
 </script>
 </body>
